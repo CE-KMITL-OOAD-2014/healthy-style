@@ -109,6 +109,52 @@ Route::get('/', function(){
 	// $obj->settext('สวัสดีวันนี้มีบทความดีๆมานำเสนอ');
 	// $obj->editArticle();
 
+	
+	// $obj = new Diary;
+	// $obj->setmeal('มื้อกลางวัน');
+	// return $obj->getmeal();
+
+	// $obj=new Diary;
+	// $obj->setuserid(23);
+	// $obj->setfoodid(45);
+	// $obj->setmeal('เย็น');
+	// $obj->setsportid(12);
+	// $obj->setreweight(68);
+	// $obj->newDiary();
+	// var_dump($obj);
+
+
+	// $obj=Diary::getbyidDiary(1);
+	// var_dump($obj);
+	// $obj->setuserid(12);
+	// $obj->setfoodid(30);
+	// $obj->setmeal('กลางวัน');
+	// $obj->setsportid(15);
+	// $obj->editDiary();
+
+	// $obj = new calculate;
+	// $obj->setbmi(356);
+	// return $obj->getbmi();
+
+	// $obj=new calculate;
+	// $obj->setuserID(23);
+	// $obj->setbmi(45);
+	// $obj->setbmr(31);
+	// $obj->setsumCal(12);
+	// $obj->setdiffWeight(68);
+	// var_dump($obj);
+	//$obj->newCalculate();
+	
+
+	$obj=calculate::getById(1);
+	var_dump($obj);
+	$obj->setuserid(15);
+	$obj->setbmi(15);
+	$obj->setbmr(15);
+	$obj->setsumCal(15);
+	$obj->setdiffWeight(15);
+	$obj->editCalculate();
+
 	return 'eiei';
 
 
