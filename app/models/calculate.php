@@ -1,96 +1,106 @@
 <?php 
 	class calculate{
-
 		private $id;
-		private $userID;
-		private $bmi;
-		private $bmr;
-		private $sumCal;
-		private $diffWeight;
-		
+		private $weight;
+		private $height;
+		private $age;
+		private $gender;
+		private $act;
+	
 
 		public function getid(){
 			return $this->id;
 		}
-		public function getuserID(){
-			return $this->userID;
+		public function getweight(){
+			return $this->weight;
 		}
-		public function getbmi(){
-			return $this->bmi;
+		public function getheight(){
+			return $this->height;
 		}
-		public function getbmr(){
-			return $this->bmr;
+		public function getage(){
+			return $this->age;
 		}
-		public function getsumCal(){
-			return $this->sumCal;
+		public function getgender(){
+			return $this->gender;
 		}
-		public function getdiffWeight(){
-			return $this->diffWeight;
+		public function getact(){
+			return $this->act;
 		}
-
+		
 
 		
-		public function setuserID($value){
-			$this->userID=$value;
+		public function setage($value){
+			$this->age=$value;
 		}
-		public function setbmi($value){
-			$this->bmi=$value;
+		public function setweight($value){
+			$this->weight=$value;
 		}
-		public function setbmr($value){
-			$this->bmr=$value;
+		public function setheight($value){
+			$this->height=$value;
 		}
-		public function setsumCal($value){
-			$this->sumCal=$value;
+		public function setact($value){
+			$this->act=$value;
 		}
-		public function setdiffWeight($value){
-			$this->diffWeight=$value;
+		public function setgender($value){
+			$this->gender=$value;
+		}
+		
+
+
+		public function calBMR(){
+			if($this->gender==0){
+				$txtSum= 66+(13.7*$this->weight)+(5*$this->height)-(6.8*$this->age);
+					if($this->act==1){
+						$txtSum = $txtSum*1.2;
+					}else if($this->act==2){
+						$txtSum = $txtSum*1.375;
+					}else if($this->act==3){
+						$txtSum = $txtSum*1.55;
+					}else if($this->act==4){
+						$txtSum = $txtSum*1.725;
+					}else{
+						$txtSum = $txtSum*1.9;
+					}
+			}else{
+				$txtSum= 665+(9.6*$this->weight)+(1.8*$this->height)-(4.7*$this->age);
+					if($this->act==1){
+						$txtSum = $txtSum*1.2;
+					}else if($this->act==2){
+						$txtSum = $txtSum*1.375;
+					}else if($this->act==3){
+						$txtSum = $txtSum*1.55;
+					}else if($this->act==4){
+						$txtSum = $txtSum*1.725;
+					}else{
+						$txtSum = $txtSum*1.9;
+					}
+			}
+			$this->txtSum=$txtSum;
+			return $this->txtSum;
 		}
 
 
-
-		public function newCalculate(){
-			$new=new calculateEloquent;
-			$new->id=$this->id;
-			$new->userID=$this->userID;
-			$new->bmi=$this->bmi;
-			$new->bmr=$this->bmr;
-			$new->sumCal=$this->sumCal;
-			$new->diffWeight=$this->diffWeight;
-			$new->save();
+		public function calBMI(){
+			$valueBMI= ($this->weight/(($this->height/100)*($this->height/100)));
+			$this->valueBMI=$valueBMI;
+			return $this->valueBMI;
 		}
 
-		public static function getById($id){
-			$data=calculateEloquent::find($id);
-				if($data==NULL){
-					return NULL;
-				}
-			$obj=new calculate;
-			$obj->id=$data->id;
-			$obj->userID=$data->userID;
-			$obj->bmi=$data->bmi;
-			$obj->bmr=$data->bmr;
-			$obj->sumCal=$data->sumCal;
-			$obj->diffWeight=$data->diffWeight;
-			
-			return $obj;
+		public function getvalueBMR(){
+			return $this->txtSum;
 		}
 
-			public function editCalculate(){
-			$edit=calculateEloquent::find($this->id);
-			$edit->id=$this->id;
-			$edit->userID=$this->userID;
-			$edit->bmi=$this->bmi;
-			$edit->bmr=$this->bmr;
-			$edit->sumCal=$this->sumCal;
-			$edit->diffWeight=$this->diffWeight;
-			$edit->save();	
+		public function getvalueBMI(){
+			return $this->valueBMI;
 		}
+
+	
 	}
 
 
 
-
 	
+
 
 
  ?>
