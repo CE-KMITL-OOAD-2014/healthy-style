@@ -86,7 +86,7 @@
     </nav>
 
     <br><br><br>
-
+    
     <div class="container">
 	<form action="{{url('prosonal')}}" method="post">
     <div class="row">
@@ -95,15 +95,7 @@
     		
     			<h2>กรอกข้อมูลส่วนตัว....</h2>
 				
-    				<div class="control-group">
-                        <label for="iduser" class="control-label"> 
-                           รหัสผู้ใช้งาน :
-                        </label>
-                        <div class="controls">
-                               <input name="iduser" type="text" value="" id="age">
-                               
-                        </div>
-                    </div>
+    				
 
                     <div class="control-group">
     				    <label for="age" class="control-label">	

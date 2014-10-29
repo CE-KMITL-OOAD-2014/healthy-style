@@ -40,8 +40,28 @@
 	Route::get('prosonal','Usercontrollers@getprosonalfill');
 	Route::post('prosonal','Usercontrollers@postprosonalfill');
 
+	Route::get('profile','Usercontrollers@getprofile');
+	//Route::post('prosonal','Usercontrollers@postprosonalfill');
 
+	// Route::get('/search',function(){
+	// 		$data=Search::searchFoodname('หมู');
+	// 		var_dump($data);
+	// });
 
+	// Route::get('/search',function(){
+	// 		$data=Search::searchFoodcal('440');
+	// 		var_dump($data);
+	// });
+
+	// Route::get('/search',function(){
+	// 		$data=Search::searchSportname('ตัดหญ้า');
+	// 		var_dump($data);
+	// });
+
+	// Route::get('/search',function(){
+	// 		$data=Search::searchSportcal('560');
+	// 		var_dump($data);
+	// });
 // Route::get('/',function(){
 // 	return "hello";
 // });
@@ -72,5 +92,6 @@
 	// $obj->setiduser(1);
 	// $obj->editUser1();
 	//return 'eiei';
+
 
 ?>

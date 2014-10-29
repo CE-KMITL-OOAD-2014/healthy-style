@@ -61,9 +61,14 @@
 		$user->setgoalweight(Input::get('goalweight'));
 		$user->setgoaldate(Input::get('goaldate'));
 		$user->newUser1();
+		return Redirect::to('profile');
 		var_dump($user);
 		//return Response::make('success');
 
+	}
+
+	public function getprofile(){
+		return View::make('profile');
 	}
 
 

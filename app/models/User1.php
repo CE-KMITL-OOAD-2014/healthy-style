@@ -68,7 +68,7 @@
 
 		public function newUser1(){
 			$new=new User1Eloquent;
-			$new->iduser=$this->iduser;
+			$new->iduser=Auth::user()->id;
 			$new->age=$this->age;
 			$new->weight=$this->weight;
 			$new->height=$this->height;
