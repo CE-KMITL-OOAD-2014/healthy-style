@@ -1,49 +1,9 @@
 <?php
 	
 	class UserControllers extends BaseController{
-		
-	public function getsignup(){
-		return View::make('signup');
-	}
 
 	public function getsignin(){
 		return View::make('login');
-	}
-
-	public function postsignup(){
-		$user=new Userlogin;
-		$user->setname(Input::get('name'));
-		$user->setpassword(Hash::make(Input::get('password')));
-		$user->setemail(Input::get('email'));
-		$user->newUserlogin();
-		var_dump($user);
-		return Redirect::to('prosonal');
-	}
-
-	public function getcalBMI(){
-		return View::make('calBMI');
-	}
-
-	public function postcalBMI(){
-		return View::make('calBMI');
-	}
-
-	public function getcalBMR(){
-		return View::make('calBMR');
-	}
-
-	public function postcalBMR(){
-		$user=new calculate;
-		$user->setage(Input::get('age'));
-		$user->setweight(Input::get('weight'));
-		$user->setheight(Input::get('height'));
-		$user->setgender(Input::get('gender'));
-		$user->setact(Input::get('act'));
-		$user->calBMR();
-		$user->calBMI();
-		echo $user->getvalueBMR();
-		echo $user->getvalueBMI();
-		var_dump($user);
 	}
 
 	public function getprosonalfill(){
@@ -52,7 +12,7 @@
 
 	public function postprosonalfill(){
 		$user=new User1;
-		$user->setiduser(Input::get('iduser'));
+		$user->setname(Input::get('name'));
 		$user->setage(Input::get('age'));
 		$user->setweight(Input::get('weight'));
 		$user->setheight(Input::get('height'));
@@ -60,17 +20,59 @@
 		$user->setact(Input::get('act'));
 		$user->setgoalweight(Input::get('goalweight'));
 		$user->setgoaldate(Input::get('goaldate'));
+		$user->setpassword(Hash::make(Input::get('password')));
+		$user->setemail(Input::get('email'));
 		$user->newUser1();
-		return Redirect::to('profile');
+		return Redirect::to('/signin');
 		var_dump($user);
 		//return Response::make('success');
 
 	}
 
 	public function getprofile(){
-		return View::make('profile');
+		$obj=new User1;
+		$user=$obj->getById(Auth::user()->id);
+			return View::make('profile')->with(array("name"=>$user->getname(),"age"=>$user->getage(),"weight"=>$user->getweight(),"height"=>$user->getheight(),"act"=>$user->getact(),"gender"=>$user->getgender(),"goalweight"=>$user->getgoalweight(),"goaldate"=>$user->getgoaldate()));
+		//return View::make('profile');
 	}
 
+	// public function getaftereditprofile(){
+	//  	$obj=new User1;
+	// 	$user=$obj->getByid(Auth::user()->id);
+	// 		return View::make('aftereditprofile')->with(array("email"=>$user->getemail(),"password"=>$user->getpassword(),"name"=>$user->getname(),"age"=>$user->getage(),"weight"=>$user->getweight(),"height"=>$user->getheight(),"act"=>$user->getact(),"gender"=>$user->getgender(),"goalweight"=>$user->getgoalweight(),"goaldate"=>$user->getgoaldate()));
+	// }
+
+	public function getarticle(){
+		return View::make('article');
+	}
+
+	public function gettheme(){
+		return View::make('theme');
+	}
+
+	public function geteditprosonalfill(){
+		return View::make('editprofile');
+	}
+
+	public function posteditprosonalfill(){
+		$user=new User1;
+		$user->setname(Input::get('name'));
+		$user->setage(Input::get('age'));
+		$user->setweight(Input::get('weight'));
+		$user->setheight(Input::get('height'));
+		$user->setgender(Input::get('gender'));
+		$user->setact(Input::get('act'));
+		$user->setgoalweight(Input::get('goalweight'));
+		$user->setgoaldate(Input::get('goaldate'));
+		$user->setpassword(Hash::make(Input::get('password')));
+		$user->setemail(Input::get('email'));
+		$user->editUserprofile(Auth::user()->id);
+		var_dump($user);
+		return Redirect::to('/profile');
+		
+		//return Response::make('success');
+
+	}
 
 } 
 

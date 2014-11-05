@@ -14,7 +14,7 @@
 	
 	use UserTrait, RemindableTrait;
 
-	protected $table = 'userlogin';
+	protected $table = 'user';
 	protected $hidden = array('password','remember_token');
 
 	// Get the unique identifier for the user.

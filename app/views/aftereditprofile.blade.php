@@ -54,7 +54,7 @@
     <br>
     <div class="container">
 
-      <form action="{{url('profile')}}" method="post">
+      <form action="{{url('afteredit')}}" method="post">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
           
@@ -69,33 +69,20 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class=" col-md-4 col-lg-4 ">  
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <a href="/editprofile">แก้ไขข้อมูลส่วนตัว</a><br><br>
-                      </tr>
-                      <tr>
-                        <a href="index.html">บันทึกข้อมูลลงไดอารี่</a><br><br>
-                      </tr>
-                       <tr>
-                        <a href="index.html">บันทึกน้ำหนักที่เปลี่ยน</a><br><br>
-                      </tr>
-                       <tr>
-                        <a href="index.html">ดูข้อมูลในไดอารี่</a><br><br>
-                      </tr>
-                        <tr>
-                        <a href="index.html">ดูน้ำหนักที่เปลี่ยนแปลงไป</a><br><br>
-                      </tr>
-                     
-                    </tbody>
-                  </table>
-                 
-                </div>
-                
+
                 <div class=" col-md-8 col-lg-8 ">  
                   <table class="table table-user-information">
                     <tbody>
+
+                      <tr>
+                        <td>email:</td>
+                        <td>{{$email}}</td>
+                      </tr>
+                      <tr>
+                        <td>password:</td>
+                        <td>{{$password}}</td>
+                      </tr>
+
                       <tr>
                         <td>ชื่อที่ใช้แสดง(ชื่อที่ใช้ในการสมัคร):</td>
                         <td>{{$name}}</td>

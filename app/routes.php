@@ -11,36 +11,48 @@
 |
 */
 
-	Route::get('/',array('before'=>'auth',function(){
-			return Redirect::to('prosonal');
+	Route::get('/profile',array('before'=>'auth',function(){
+			return Redirect::to('profile');
 	}));
-	//Route::get('/', function (){ return "fern";});
-	Route::get('signup','Usercontrollers@getsignup');
-	Route::post('signup','Usercontrollers@postsignup');
+	
+	Route::get('/', 'IndexControllers@getIndex');
+	Route::get('/signup','Usercontrollers@getprosonalfill');
+	Route::post('/signup','Usercontrollers@postprosonalfill');
 
-	Route::get('signin','Usercontrollers@getsignin');
+	Route::get('/theme','Usercontrollers@gettheme');
 	
 	Route::get('signout',function(){
 		Auth::logout();
-		return 'logout';
+		Session::flush();
+		return Redirect::to('/');
 	});
+
+	Route::get('/signin','Usercontrollers@getsignin');
 	Route::post('/signin',function(){
 					$credentials=Input::only('name','password');
 					if(Auth::attempt($credentials)){
-						return Redirect::intended('/');
+						return Redirect::intended('/profile');
 					}
 						return Redirect::to('signin');
 	});
 
-	Route::get('bmi','Usercontrollers@getcalBMI');
+	Route::get('/bmi','calculatecontrollers@getcalBMI');
+	Route::post('/bmi','calculatecontrollers@postcalBMI');
 
-	Route::get('/bmr','Usercontrollers@getcalBMR');
-	Route::post('/bmr','Usercontrollers@postcalBMR');
+	Route::get('/bmr','calculatecontrollers@getcalBMR');
+	Route::post('/bmr','calculatecontrollers@postcalBMR');
 	
-	Route::get('prosonal','Usercontrollers@getprosonalfill');
-	Route::post('prosonal','Usercontrollers@postprosonalfill');
 
-	Route::get('profile','Usercontrollers@getprofile');
+	Route::get('/editprofile','Usercontrollers@geteditprosonalfill');
+	Route::post('/editprofile','Usercontrollers@posteditprosonalfill');
+
+	Route::get('/afteredit','Usercontrollers@getaftereditprofile');
+
+	Route::get('/profile','Usercontrollers@getprofile');
+
+	Route::get('/article','Usercontrollers@getarticle');
+
+
 	//Route::post('prosonal','Usercontrollers@postprosonalfill');
 
 	// Route::get('/search',function(){
