@@ -1,4 +1,6 @@
 <?php 
+
+
 	class calculate{
 		private $id;
 		private $weight;
@@ -6,6 +8,9 @@
 		private $age;
 		private $gender;
 		private $act;
+		private $goalweight;
+		private $weightday;
+
 	
 
 		public function getid(){
@@ -26,7 +31,12 @@
 		public function getact(){
 			return $this->act;
 		}
-		
+		public function getgoalweight(){
+			return $this->$goalweight;
+		}
+		public function getweightday(){
+			return $this->$weightday;
+		}
 
 		
 		public function setage($value){
@@ -44,8 +54,12 @@
 		public function setgender($value){
 			$this->gender=$value;
 		}
-		
-
+		public function setgoalweight($value){
+			$this->$goalweight=$value;
+		}
+		public function setweightday($value){
+			$this->$weightday=$value;
+		}
 
 		public function calBMR(){
 			if($this->gender==0){
@@ -86,12 +100,34 @@
 			return $this->valueBMI;
 		}
 
+		public function getvalueBMI(){
+			return $this->valueBMI;
+		}
+
+		// public function newcaluser($weight,$height){
+		// 	$new=new calculateEloquent;
+		// 	$new->save();
+		// }
+
 		public function getvalueBMR(){
 			return $this->txtSum;
 		}
 
-		public function getvalueBMI(){
-			return $this->valueBMI;
+
+		public function diffweight(){
+			$diff=$this->weight-$this->goalweight;
+			$diffweight=$diff/100;
+
+			$this->diffweight=$diffweight;
+			return $this->diffweight;
+		}
+
+		public function diffweighttoday(){
+			$diffday=$this->weight-$this->weightday;
+			$percent=$diffday/diffweight();
+
+			$this->percent=$percent;
+			return $this->percent;
 		}
 
 	

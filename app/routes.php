@@ -22,8 +22,8 @@
 	Route::get('/theme','Usercontrollers@gettheme');
 	
 	Route::get('signout',function(){
-		Auth::logout();
 		Session::flush();
+		Auth::logout();
 		return Redirect::to('/');
 	});
 
@@ -52,6 +52,11 @@
 
 	Route::get('/article','Usercontrollers@getarticle');
 
+	Route::get('/food','SearchControllers@getfood');
+	Route::get('/sport','SearchControllers@getsport');
+
+	Route::get('/saveweight','Usercontrollers@getSaveweight');
+	Route::get('/chooseforsave','Usercontrollers@getchooseSave');
 
 	//Route::post('prosonal','Usercontrollers@postprosonalfill');
 
@@ -105,5 +110,12 @@
 	// $obj->editUser1();
 	//return 'eiei';
 
+	// $obj=new Food;
+	// $obj->setfoodname('ไก่ทอดต้นตำรับ');
+	// $obj->settype('KFC');
+	// $obj->setfoodcal(180);
+	// $obj->newFood();
+	// var_dump($obj);
+ 
 
-?>
+?> 

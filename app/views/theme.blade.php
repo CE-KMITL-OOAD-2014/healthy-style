@@ -30,8 +30,8 @@
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">ค่าแคลอรี่<b class="caret"></b></a>
 				<ul class="dropdown-menu">
-				<li><a href="#">อาหาร</a></li>
-				<li><a href="#">กิจกรรมการเผาผลาญพลังงาน</a></li>
+				<li><a href="/food">อาหาร</a></li>
+				<li><a href="/sport">กิจกรรมการเผาผลาญพลังงาน</a></li>
 				</ul>
 		</li>
 
@@ -42,9 +42,15 @@
 				<li><a href="/bmr">BMR</a></li>
 			</ul>
 		</li>
-
-			<li><a href="/signup">Register</a></li>
-			<li><a href="/signin">Log In</a></li>
+			@if(Auth::guest())
+				<li><a href="/signup">สมัครสมาชิก</a></li>
+				<li><a href="/signin">Log In</a></li>
+			@else
+				<li><a href="/profile">Profile</a></li>
+				<li><a href="/signout">Log out</a></li>
+			@endif
+			<!--i><a href="/signup">Register</a></li>
+			<li><a href="/signin">Log In</a></li>-->
 
 		</ul>
 		</div>

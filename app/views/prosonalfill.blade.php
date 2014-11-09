@@ -46,7 +46,7 @@
                     
                         <input type="radio" name="gender" value="male" checked=true>&nbspชาย&nbsp&nbsp&nbsp 						
                         <input type="radio" name="gender" value="female">&nbspหญิง
-                    
+                     
                     </div>
                 </div>
 

@@ -1,59 +1,11 @@
-<!DOCTYPE html>
-    <html lang="">
-    
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @yield('title')
-    <!-- Bootstrap CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    
-    <body>
-      <div class="navbar navbar-inverse">
-      <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+@extends ('theme')
+@section('title')
+<title>Profile...</title>
+@stop
+@section('body')
 
-    <a class="navbar-brand" href="/">Healthy Style</a>
-    </div>
-    <div class="navbar-collapse collapse navbar-inverse-collapse">
-    
-    <ul class="nav navbar-nav navbar-right">
-    
-    <li class="active"><a href="/article">บทความ</a></li>
-    
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">ค่าแคลอรี่<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-        <li><a href="#">อาหาร</a></li>
-        <li><a href="#">กิจกรรมการเผาผลาญพลังงาน</a></li>
-        </ul>
-    </li>
-
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">โปรแกรมการคำนวณ<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-        <li><a href="/bmi">BMI</a></li>
-        <li><a href="/bmr">BMR</a></li>
-      </ul>
-    </li>
-
-      <li><a href="/signup">Register</a></li>
-      <li><a href="/signout">Log Out</a></li>
-
-    </ul>
-    </div>
-    </div>
-    </body>
-
-    <br>
     <div class="container">
-
+      
       <form action="{{url('profile')}}" method="post">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
@@ -76,18 +28,14 @@
                         <a href="/editprofile">แก้ไขข้อมูลส่วนตัว</a><br><br>
                       </tr>
                       <tr>
-                        <a href="index.html">บันทึกข้อมูลลงไดอารี่</a><br><br>
+                        <a href="/chooseforsave">บันทึกข้อมูลลงไดอารี่</a><br><br>
                       </tr>
-                       <tr>
-                        <a href="index.html">บันทึกน้ำหนักที่เปลี่ยน</a><br><br>
-                      </tr>
-                       <tr>
+                      <tr>
                         <a href="index.html">ดูข้อมูลในไดอารี่</a><br><br>
                       </tr>
-                        <tr>
-                        <a href="index.html">ดูน้ำหนักที่เปลี่ยนแปลงไป</a><br><br>
+                       <tr>
+                        <a href="/saveweight">บันทึกและดูน้ำหนักที่เปลี่ยน</a><br><br>
                       </tr>
-                     
                     </tbody>
                   </table>
                  
@@ -149,5 +97,4 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-
-</html>
+@stop

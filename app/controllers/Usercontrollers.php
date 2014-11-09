@@ -31,10 +31,12 @@
 
 	public function getprofile(){
 		$obj=new User1;
-		$user=$obj->getById(Auth::user()->id);
+		$user=$obj->getById(Auth::user()->id);	
+			var_dump($user);
 			return View::make('profile')->with(array("name"=>$user->getname(),"age"=>$user->getage(),"weight"=>$user->getweight(),"height"=>$user->getheight(),"act"=>$user->getact(),"gender"=>$user->getgender(),"goalweight"=>$user->getgoalweight(),"goaldate"=>$user->getgoaldate()));
 		//return View::make('profile');
 	}
+
 
 	// public function getaftereditprofile(){
 	//  	$obj=new User1;
@@ -71,8 +73,21 @@
 		return Redirect::to('/profile');
 		
 		//return Response::make('success');
-
 	}
+
+	public function getSaveweight(){
+		$obj=new User1;
+		$user=$obj->getById(Auth::user()->id);	
+			var_dump($user);
+			return View::make('saveweight')->with(array("weight"=>$user->getweight(),"goalweight"=>$user->getgoalweight()));
+		//return View::make('saveweight');
+	}
+
+	public function getchooseSave(){
+		return View::make('chooseforsave');
+	}
+
+	
 
 } 
 
