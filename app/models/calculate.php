@@ -11,6 +11,7 @@
 		private $goalweight;
 		private $weightday;
 
+
 	
 
 		public function getid(){
@@ -130,6 +131,18 @@
 			return $this->percent;
 		}
 
+
+
+		// public function newcaluser(){
+		// 	$new=new calculateEloquent;
+		// 	$new->id=$this->id;
+		// 	$new->weight=$this->weight;
+		// 	$new->height=$this->height;
+		// 	$new->act=$this->act;
+		// 	$new->gender=$this->gender;
+		// 	$new->
+		// 	$new->save();cal
+		// }
 	
 	}
 

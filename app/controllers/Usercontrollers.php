@@ -24,7 +24,7 @@
 		$user->setemail(Input::get('email'));
 		$user->newUser1();
 		return Redirect::to('/signin');
-		var_dump($user);
+		var_dump($user1);
 		//return Response::make('success');
 
 	}
@@ -34,7 +34,7 @@
 		$user=$obj->getById(Auth::user()->id);	
 			var_dump($user);
 			return View::make('profile')->with(array("name"=>$user->getname(),"age"=>$user->getage(),"weight"=>$user->getweight(),"height"=>$user->getheight(),"act"=>$user->getact(),"gender"=>$user->getgender(),"goalweight"=>$user->getgoalweight(),"goaldate"=>$user->getgoaldate()));
-		//return View::make('profile');
+		//return View::make('profile'); 
 	}
 
 
@@ -81,6 +81,15 @@
 			var_dump($user);
 			return View::make('saveweight')->with(array("weight"=>$user->getweight(),"goalweight"=>$user->getgoalweight()));
 		//return View::make('saveweight');
+	}
+
+	public function postSaveweight(){
+		$user=new reweight;
+		$user->setiduser(Auth::user()->id);
+		$user->setnewweight(Input::get('weightday'));
+		$user->newreweight();
+		var_dump($user);
+		return Redirect::to('/saveweight');
 	}
 
 	public function getchooseSave(){

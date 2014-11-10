@@ -59,18 +59,17 @@
                 <br>
 				
     			<div class="form-actions">
-					<button type="submit" class="btn btn-large btn-primary" OnClick="JavaScript:BMICal();">คำนวณ</button><br>
+					<button type="submit" class="btn btn-large btn-primary">คำนวณ</button><br>
 					<br><label for="BMI" class="control-label">    
                         ค่า BMI :
                     </label>
-                    <input name="txtSum" id="txtSim" type="text">
-    				
+                    
     			</div>
 				
 				
+		</form>		
 				
-				
-    		</form>
+    		
     	</div> <!-- .span8 -->
 	</div>
 </div>

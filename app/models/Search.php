@@ -1,23 +1,23 @@
 <?php
 	class Search{
 		
-		public function searchName($name){
-			$food=new Food;
-			$data=$food->getAll();
-			$size=count($data);
-			$result=array();
-			$j=0;
-				for($i=0;$i<$size;$i++){
-					if(($data[$i]->getfoodname())==$name){
-					$result[$j]=$data[$i];
-					$j++;
-				}
-			}
-			if(count($result)==0){
-				$result=NULL;
-			}
-				return $result;
-		}
+		// public function searchName($name){
+		// 	$food=new Food;
+		// 	$data=$food->getAll();
+		// 	$size=count($data);
+		// 	$result=array();
+		// 	$j=0;
+		// 		for($i=0;$i<$size;$i++){
+		// 			if(($data[$i]->getfoodname())==$name){
+		// 			$result[$j]=$data[$i];
+		// 			$j++;
+		// 		}
+		// 	}
+		// 	if(count($result)==0){
+		// 		$result=NULL;
+		// 	}
+		// 		return $result;
+		// }
 
 		public static function searchFoodname($fooddata){
 			$data=FoodEloquent::where('foodname','LIKE',"%".$fooddata."%")->get();
@@ -139,7 +139,7 @@
 				}
 			return $output;
 			}
-	}
+	 }
 
 
 ?>

@@ -56,6 +56,8 @@
 	Route::get('/sport','SearchControllers@getsport');
 
 	Route::get('/saveweight','Usercontrollers@getSaveweight');
+	Route::post('/saveweight','Usercontrollers@postSaveweight');
+
 	Route::get('/chooseforsave','Usercontrollers@getchooseSave');
 
 	//Route::post('prosonal','Usercontrollers@postprosonalfill');
@@ -110,12 +112,6 @@
 	// $obj->editUser1();
 	//return 'eiei';
 
-	// $obj=new Food;
-	// $obj->setfoodname('ไก่ทอดต้นตำรับ');
-	// $obj->settype('KFC');
-	// $obj->setfoodcal(180);
-	// $obj->newFood();
-	// var_dump($obj);
+	 
  
-
 ?> 

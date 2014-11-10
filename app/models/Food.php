@@ -61,21 +61,21 @@
 			$edit->save();
 		}
 
-		 public static function getAll(){
-			$data=FoodEloquent::all();
-				$size=count($data);
-				$food= array( );
+		//  public static function getAll(){
+		// 	$data=FoodEloquent::all();
+		// 		$size=count($data);
+		// 		$food= array( );
 
-			for($i=0;$i<$size;$i++){
-				$obj=new Food;
-				$obj->id=$data[$i]->id;
-				$obj->foodname=$data[$i]->foodname;
-				$obj->type=$data[$i]->type;
-				$obj->foodcal=$data[$i]->foodcal;
-				$food[$i]=$obj;
-			}
-					return $food;		
-		}
+		// 	for($i=0;$i<$size;$i++){
+		// 		$obj=new Food;
+		// 		$obj->id=$data[$i]->id;
+		// 		$obj->foodname=$data[$i]->foodname;
+		// 		$obj->type=$data[$i]->type;
+		// 		$obj->foodcal=$data[$i]->foodcal;
+		// 		$food[$i]=$obj;
+		// 	}
+		// 			return $food;		
+		// }
 
 	}
 ?>

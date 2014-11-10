@@ -37,6 +37,7 @@
 			return View::make('food')->with(array('searchFoodname'=>$searchfood,'typefood'=>$typefood,'calfood'=>$calfood));
 			
 			//return View::make('food');
+ 
 		} 
 
 		public function getsport(){
