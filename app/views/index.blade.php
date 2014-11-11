@@ -18,76 +18,56 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.2.0</h4>
+                        <h4><i class="fa fa-fw fa-check"></i> ค้นหาค่าแคลอรี่</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <p>ค้นหาจำนวนแคลอรี่ของอาหารแต่ละชนิดได้ง่ายๆกับโปรแกรมค้นหาแคลอรี่ของเรา เพื่อควบคุมจำนวนแคลอรี่ให้หุ่นดี+ลดน้ำหนักเป็นไปได้ง่าย</p>
+                        <a href="/food" class="btn btn-default">ค้นหา</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
+                        <h4><i class="fa fa-fw fa-gift"></i> ความรู้เพิ่มเติมสำหรับคนรักสุขภาพ</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <p>รวบรวมบทความทางด้านสุขภาพ เพื่อเป็นประโยชน์ให้กับผู้รักสุขภาพทุกคน </p>
+                        <a href="/article" class="btn btn-default">อ่านเลย</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+                        <h4><i class="fa fa-fw fa-compass"></i>ออกกำลังกายเท่าไร น้ำหนักก็ไม่ลด...?</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <p>น้ำหนักจะลดได้นั้นอยู่ที่ แคลอรี่ที่ทานเข้าไป น้อยกว่า แคลอรี่ที่ร่างกายใช้  โปรแกรมการคำนวณจะช่วยคำนวณให้คุณได้ว่าร่างกายคุณต้องการแคลอรี่ประมาณเท่าไร และอาหารที่ทานให้เท่าไรได้</p>
+                        <a href="/bmr" class="btn btn-default">คำนวณ</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.row -->
-
+        <br><br><br>
         <!-- Portfolio Section -->
         <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Portfolio Heading</h2>
+
+            <div class="col-md-4 col-sm-6">
+                    <img  src="http://opositive.ca/wp-content/uploads/2014/10/healthy-living.png" alt="" width="500" height="350">
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
+            
+                    <img  src="http://www.ppmapartments.com/blog/wp-content/uploads/2013/12/healthy-300x200.jpg" alt="" width="500" height="350">
+
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
+                
+                    <img src="http://media1.onsugar.com/files/2012/03/10/2/192/1922729/363068b995489f0b_76756235.preview.jpg" alt="" width="400" height="350">
+
             </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <br>
-            <br>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
+            
         </div>
         <!-- /.row -->
 

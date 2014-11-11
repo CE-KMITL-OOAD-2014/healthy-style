@@ -14,8 +14,8 @@
                 
                     <form action="{{url('chooseforsave')}}" method="post" role="search">
                         <div class="form-group">
-                       		  <input type="submit" name="foodforsave" id="btn-login" class="btn btn-primary btn-block btn-lg" value="อาหาร" >
-                            <br><input type="submit" name="sportforsave" id="btn-login" class="btn btn-success btn-block btn-lg" value="กิจกรรมการเผาพลาญพลังงาน">
+                       		  <button type="submit" name="choose"  class="btn btn-primary btn-block btn-lg" value="1" >อาหาร</button>
+                            <br><button type="submit" name="choose" class="btn btn-success btn-block btn-lg" value="2">กิจกรรมการเผาผลาญพลังงาน</button>
                         </div>
                     </form>
                    

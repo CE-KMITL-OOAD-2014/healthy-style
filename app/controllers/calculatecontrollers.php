@@ -39,7 +39,7 @@
 				$user->setgender(Input::get('gender'));
 				$user->setact(Input::get('act'));
 				$bmr=$user->calBMR();
-				echo "ค่า bmi : ";
+				echo "ค่า bmr : ";
 				echo $bmr=$user->getvalueBMR();
 				//var_dump($bmi);
 			}

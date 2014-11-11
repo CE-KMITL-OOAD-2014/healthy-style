@@ -11,54 +11,64 @@
 |
 */
 
-	Route::get('/profile',array('before'=>'auth',function(){
-			return Redirect::to('profile');
-	}));
-	
-	Route::get('/', 'IndexControllers@getIndex');
-	Route::get('/signup','Usercontrollers@getprosonalfill');
-	Route::post('/signup','Usercontrollers@postprosonalfill');
+Route::get('/profile',array('before'=>'auth',function(){
+	return Redirect::to('profile');
+}));
 
-	Route::get('/theme','Usercontrollers@gettheme');
-	
-	Route::get('signout',function(){
-		Session::flush();
-		Auth::logout();
-		return Redirect::to('/');
-	});
+Route::get('/', 'IndexControllers@getIndex');
+Route::get('/signup','Usercontrollers@getprosonalfill');
+Route::post('/signup','Usercontrollers@postprosonalfill');
 
-	Route::get('/signin','Usercontrollers@getsignin');
-	Route::post('/signin',function(){
-					$credentials=Input::only('name','password');
-					if(Auth::attempt($credentials)){
-						return Redirect::intended('/profile');
-					}
-						return Redirect::to('signin');
-	});
+Route::get('/theme','Usercontrollers@gettheme');
 
-	Route::get('/bmi','calculatecontrollers@getcalBMI');
-	Route::post('/bmi','calculatecontrollers@postcalBMI');
+Route::get('signout',function(){
+	Session::flush();
+	Auth::logout();
+	return Redirect::to('/');
+});
 
-	Route::get('/bmr','calculatecontrollers@getcalBMR');
-	Route::post('/bmr','calculatecontrollers@postcalBMR');
-	
+Route::get('/signin','Usercontrollers@getsignin');
+Route::post('/signin',function(){
+	$credentials=Input::only('name','password');
+	if(Auth::attempt($credentials)){
+		return Redirect::intended('/profile');
+	}
+	return Redirect::to('signin');
+});
 
-	Route::get('/editprofile','Usercontrollers@geteditprosonalfill');
-	Route::post('/editprofile','Usercontrollers@posteditprosonalfill');
+Route::get('/bmi','calculatecontrollers@getcalBMI');
+Route::post('/bmi','calculatecontrollers@postcalBMI');
 
-	Route::get('/afteredit','Usercontrollers@getaftereditprofile');
+Route::get('/bmr','calculatecontrollers@getcalBMR');
+Route::post('/bmr','calculatecontrollers@postcalBMR');
 
-	Route::get('/profile','Usercontrollers@getprofile');
 
-	Route::get('/article','Usercontrollers@getarticle');
+Route::get('/editprofile','Usercontrollers@geteditprosonalfill');
+Route::post('/editprofile','Usercontrollers@posteditprosonalfill');
 
-	Route::get('/food','SearchControllers@getfood');
-	Route::get('/sport','SearchControllers@getsport');
+Route::get('/afteredit','Usercontrollers@getaftereditprofile');
 
-	Route::get('/saveweight','Usercontrollers@getSaveweight');
-	Route::post('/saveweight','Usercontrollers@postSaveweight');
+Route::get('/profile','Usercontrollers@getprofile');
 
-	Route::get('/chooseforsave','Usercontrollers@getchooseSave');
+Route::get('/article','Usercontrollers@getarticle');
+
+Route::get('/food','SearchControllers@getfood');
+Route::get('/sport','SearchControllers@getsport');
+
+Route::get('/saveweight','DiaryControllers@getSaveweight');
+Route::post('/saveweight','DiaryControllers@postSaveweight');
+
+Route::get('/chooseforsave','DiaryControllers@getchooseSave');
+Route::post('/chooseforsave','DiaryControllers@postchooseSave');
+
+Route::get('/searchfoodforuser','DiaryControllers@getfood');
+Route::post('/searchfoodforuser','DiaryControllers@postfood');
+
+Route::get('/searchsportforuser','DiaryControllers@getsport');
+Route::post('/searchsportforuser','DiaryControllers@postsport');
+
+Route::get('/likefood','DiaryControllers@getlikeFood');
+Route::post('/likefood','DiaryControllers@postlikeFood');
 
 	//Route::post('prosonal','Usercontrollers@postprosonalfill');
 
@@ -112,6 +122,6 @@
 	// $obj->editUser1();
 	//return 'eiei';
 
-	 
- 
+
+
 ?> 

@@ -36,6 +36,9 @@
                        <tr>
                         <a href="/saveweight">บันทึกและดูน้ำหนักที่เปลี่ยน</a><br><br>
                       </tr>
+                      <tr>
+                        <a href="/likefood">รายการโปรด</a><br><br>
+                      </tr>
                     </tbody>
                   </table>
                  

@@ -5,8 +5,7 @@
 		private $userid;
 		private $foodid;
 		private $meal;
-		private $sportid;
-		private $reweight;
+
 
 		public function getid(){
 			return $this->id;
@@ -20,12 +19,6 @@
 		public function getmeal(){
 			return $this->meal;
 		}
-		public function getsportid(){
-			return $this->sportid;
-		}
-		public function getreweight(){
-			return $this->reweigth;
-		}
 
 
 		public function setuserid($value){
@@ -37,21 +30,13 @@
 		public function setmeal($value){
 			$this->meal=$value;
 		}
-		public function setsportid($value){
-			$this->sportid=$value;
-		}
-		public function setreweight($value){
-			$this->reweight=$value;
-		}
 
 
 	public function newDiary(){
 		$new=new DiaryEloquent;
-		$new->userid=$this->userid;
+		$new->userid=Auth::user()->id;
 		$new->foodid=$this->foodid;
 		$new->meal=$this->meal;
-		$new->sportid=$this->sportid;
-		$new->reweight=$this->reweight;
 		$new->save();
 	}
 
@@ -65,8 +50,6 @@
 		$obj->userid=$data->userid;
 		$obj->foodid=$data->foodid;
 		$obj->meal=$data->meal;
-		$obj->sportid=$data->sportid;
-		$obj->reweight=$data->reweight;
 	
 		return $obj;
 	}
@@ -76,8 +59,6 @@
 		$edit->userid=$this->userid;
 		$edit->foodid=$this->foodid;
 		$edit->meal=$this->meal;
-		$edit->sportid=$this->sportid;
-		$edit->reweight=$this->reweight;
 		$edit->save();
 	}
 

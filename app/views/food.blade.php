@@ -27,7 +27,7 @@
                     <input type="radio" name="food" value="2">&nbspจำนวนแคลอรี่
 
                     <div class="form-actions">
-                        <br><input type="submit" class="btn btn-primary btn-block btn-lg" value="ค้นหา" >
+                        <br><input type="submit" class="btn btn-primary btn-block btn-lg" value="ค้นหา"  >
                     </div>
                 </div> 
             </form>
@@ -99,7 +99,7 @@
     <hr> 
     </div>
 </div>
-</count($searchFoodname)
+</count>
 <script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>
 
 

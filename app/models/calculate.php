@@ -105,10 +105,10 @@
 			return $this->valueBMI;
 		}
 
-		// public function newcaluser($weight,$height){
-		// 	$new=new calculateEloquent;
-		// 	$new->save();
-		// }
+		public function calBMI($weight,$height){
+			$valueBMI= ($weight/(($height/100)*($height/100)));
+			return $valueBMI;
+		}
 
 		public function getvalueBMR(){
 			return $this->txtSum;
