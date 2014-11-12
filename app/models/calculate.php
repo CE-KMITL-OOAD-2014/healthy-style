@@ -12,6 +12,7 @@
 		private $weightday;
 
 
+
 	
 
 		public function getid(){
@@ -62,6 +63,9 @@
 			$this->$weightday=$value;
 		}
 
+
+
+
 		public function calBMR(){
 			if($this->gender==0){
 				$txtSum= 66+(13.7*$this->weight)+(5*$this->height)-(6.8*$this->age);
@@ -95,6 +99,8 @@
 		}
 
 
+
+
 		public function calBMI(){
 			$valueBMI= ($this->weight/(($this->height/100)*($this->height/100)));
 			$this->valueBMI=$valueBMI;
@@ -105,10 +111,7 @@
 			return $this->valueBMI;
 		}
 
-		public function calBMI($weight,$height){
-			$valueBMI= ($weight/(($height/100)*($height/100)));
-			return $valueBMI;
-		}
+		
 
 		public function getvalueBMR(){
 			return $this->txtSum;
@@ -131,18 +134,19 @@
 			return $this->percent;
 		}
 
-
-
-		// public function newcaluser(){
+		// public function newCal(){
 		// 	$new=new calculateEloquent;
 		// 	$new->id=$this->id;
+		// 	$new->iduser=Auth::user()->id;
+		// 	$new->age=$this->age;
 		// 	$new->weight=$this->weight;
 		// 	$new->height=$this->height;
 		// 	$new->act=$this->act;
 		// 	$new->gender=$this->gender;
-		// 	$new->
-		// 	$new->save();cal
+		// 	$user=$new->calBMR();
+		// 	$new->save();
 		// }
+
 	
 	}
 

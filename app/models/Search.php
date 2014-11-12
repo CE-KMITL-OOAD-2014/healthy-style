@@ -181,6 +181,89 @@
 					}
 			return $output;
 			}
+
+			public static function searchfoodid($userid){
+			$data=likeFoodEloquent::where('userID','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->foodlikeID;
+					}
+			return $output;
+			}
+
+			public static function searchsavefoodid($userid){
+			$data=DiaryEloquent::where('userID','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->foodID;
+					}
+			return $output;
+			}
+
+			public static function searchsavesportid($userid){
+			$data=DiarysportEloquent::where('userID','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->sportID;
+					}
+			return $output;
+			}
+
+			public static function searchnameformid($userid){
+			$data=FoodEloquent::where('id','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->foodname;
+				}
+			return $output;
+			}
+
+		public static function searchcalformid($userid){
+			$data=FoodEloquent::where('id','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->foodcal;
+				}
+			return $output;
+			}
+
+		public static function searchtypeformid($userid){
+			$data=FoodEloquent::where('id','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->type;
+				}
+			return $output;
+			}
+
+			public static function searchnamesportformid($userid){
+			$data=SportEloquent::where('id','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->sportname;
+				}
+			return $output;
+			}
+
+		public static function searchcalsportformid($userid){
+			$data=SportEloquent::where('id','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->sportcal;
+				}
+			return $output;
+			}
+
+
+
 			// public static function searchSportcal($caldata){
 			// $data=SportEloquent::where('sportcal','LIKE',"%".$caldata."%")->get();
 			// $output=array();

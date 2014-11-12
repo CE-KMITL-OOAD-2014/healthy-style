@@ -91,6 +91,19 @@ class DiaryControllers extends BaseController{
 		return Redirect::to('/searchsportforuser');
 	}
 
+	public function getchooseforlooklike(){
+		return View::make('chooseforlooklike');
+	}
+
+	public function postchooseforlooklike(){
+		$choose=Input::get('choose');
+		if($choose == 1){
+			return Redirect::to('/likefood');
+		}else{
+			return Redirect::to('/looklikefood');
+		}
+		
+	}
 
 	public function getlikeFood(){
 		$obj=Input::get('search');
@@ -127,6 +140,26 @@ class DiaryControllers extends BaseController{
 		var_dump($save);
 		return Redirect::to('/likefood');
 	}
+
+	public function getlooklikefood(){
+		$iduser=new Search;
+		$idfood=$iduser->searchfoodid(Auth::user()->id);
+
+		return View::make('lookforlikefood')->with(array('foodid'=>$idfood));
+
+		//return View::make('lookforlikefood');
+	}
+
+	public function getshowdiary(){
+		$iduser=new Search;
+		$idfood=$iduser->searchsavefoodid(Auth::user()->id);
+		$idsport=$iduser->searchsavesportid(Auth::user()->id);
+
+		return View::make('showdiary')->with(array('foodid'=>$idfood,'sportid'=>$idsport));
+
+		//return View::make('lookforlikefood');
+	}
+
 
 }
 ?>

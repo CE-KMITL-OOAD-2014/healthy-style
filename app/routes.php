@@ -67,8 +67,20 @@ Route::post('/searchfoodforuser','DiaryControllers@postfood');
 Route::get('/searchsportforuser','DiaryControllers@getsport');
 Route::post('/searchsportforuser','DiaryControllers@postsport');
 
+
+
+Route::get('/chooseforlooklike','DiaryControllers@getchooseforlooklike');
+Route::post('/chooseforlooklike','DiaryControllers@postchooseforlooklike');
+
 Route::get('/likefood','DiaryControllers@getlikeFood');
 Route::post('/likefood','DiaryControllers@postlikeFood');
+
+Route::get('/looklikefood','DiaryControllers@getlooklikefood');
+//Route::post('/looklikefood','DiaryControllers@postlooklikefood');
+
+Route::get('/showdiary','DiaryControllers@getshowdiary');
+//Route::post('/showdiary','DiaryControllers@postshowdiary');
+
 
 	//Route::post('prosonal','Usercontrollers@postprosonalfill');
 
