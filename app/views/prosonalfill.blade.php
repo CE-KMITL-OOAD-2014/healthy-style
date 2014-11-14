@@ -83,12 +83,12 @@
 
    <br>
    <label for="goaldate" class="control-label">    
-    จำนวนสัปดาห์เป้าหมาย :
+    จำนวนวันเป้าหมาย :
 </label>
 <div class="controls">
     <input name="goaldate" type="text" value="" id="goaldate">
-    <span class="help-inline">  สัปดาห์</span>
-    <span class="help-inline">  ( หากไม่ต้องการลดน้ำหนักให้กำหนด 0 สัปดาห์ )</span>
+    <span class="help-inline">  จำนวนวันเป้าหมาย</span>
+    <span class="help-inline">  ( หากไม่ต้องการลดน้ำหนักให้กำหนด 0 วัน )</span>
 </div>
 
 <br>

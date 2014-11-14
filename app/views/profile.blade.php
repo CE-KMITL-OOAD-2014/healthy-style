@@ -17,21 +17,18 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Profile...</h3>
+              <h3 class="panel-title">{{$name}}&nbsps'&nbsp&nbsp Profile </h3>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class=" col-md-4 col-lg-4 ">  
+                <div class=" col-md-3 col-lg-3 ">  
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
                         <a href="/editprofile">แก้ไขข้อมูลส่วนตัว</a><br><br>
                       </tr>
                       <tr>
-                        <a href="/chooseforsave">บันทึกข้อมูลลงไดอารี่</a><br><br>
-                      </tr>
-                      <tr>
-                        <a href="/showdiary">ดูข้อมูลในไดอารี่</a><br><br>
+                        <a href="/chooseforsave">ไดอารี่</a><br><br>
                       </tr>
                        <tr>
                         <a href="/saveweight">บันทึกและดูน้ำหนักที่เปลี่ยน</a><br><br>
@@ -45,7 +42,7 @@
                  
                 </div>
                 
-                <div class=" col-md-8 col-lg-8 ">  
+                <div class=" col-md-9 col-lg-9 ">  
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -66,22 +63,26 @@
                       </tr>
                       <tr>
                         <td>เพศ : </td>
-                        <td>{{$gender}}</td>
+                        <td>{{$sex}}</td>
                       </tr>
                       <tr>
                         <td>ระดับกิจกรรมในชีวิตประจำวัน :</td>
-                        <td>{{$act}}</td>
+                        <td>{{$activity}}</td>
                       </tr>
                       <tr>
                         <td>น้ำหนักเป้าหมาย ( กิโลกรัม ) :</td>
                         <td>{{$goalweight}}</td>
                       </tr>
                       <tr>
-                        <td>เวลาเป้าหมาย ( สัปดาห์ ) :</td>
+                        <td>วันจำนวนเป้าหมาย  :</td>
                         <td>{{$goaldate}}</td>
                       </tr>
+                      <tr>
                         <td>ค่าแคลอรี่ที่ควรได้รับต่อวัน(ค่า bmr)  :</td>
                         <td>{{$bmr}}</td>
+                      </tr>
+                        <td>ค่าแคลอรี่ที่ควรได้รับต่อวันสำหรับผู้ลดน้ำหนัก(ค่า bmr สำหรับผู้ลดน้ำหนัก)  :</td>
+                        <td>{{$downbmr}}</td>
                     </tbody>
                   </table>
                   

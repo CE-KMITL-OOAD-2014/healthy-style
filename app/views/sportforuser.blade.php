@@ -23,7 +23,17 @@
                     <input type="submit" class="btn btn-primary btn-block btn-lg" value="ค้นหา" >
                 </div>
             </form>
+                <br><br>
+                <form action="{{url('/searchsportforuser')}}" method="post">
+                วันที่ต้องการบันทึก : 
+                <select class="form-control" name="day">
+                    @for ($i=1; $i < $day+1 ; $i++)
 
+                             <option name="day" value="{{$i}}">{{$i}}</option>
+                    
+                    @endfor
+                </select>  
+                <br>
                 <table class="table" id="table">
                     @if ($searchSportname==NULL)
                     <tr class="primary">
@@ -44,8 +54,9 @@
                        <tr>
                         <td> {{$searchSportname[$i]}}</a></td>
                         <td> {{$calsport[$i]}}</a></td>
+                        
 
-                        <form action="{{url('/searchsportforuser')}}" method="post">
+                        
                             <td><button type="submit" name="save"  class="btn btn-success btn-block btn-lg" value="{{$id[$i]}}" >บันทึก</button></td>
                         </form>
 

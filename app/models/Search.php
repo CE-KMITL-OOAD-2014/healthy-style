@@ -1,24 +1,7 @@
 <?php
 	class Search{
 		
-		// public function searchName($name){
-		// 	$food=new Food;
-		// 	$data=$food->getAll();
-		// 	$size=count($data);
-		// 	$result=array();
-		// 	$j=0;
-		// 		for($i=0;$i<$size;$i++){
-		// 			if(($data[$i]->getfoodname())==$name){
-		// 			$result[$j]=$data[$i];
-		// 			$j++;
-		// 		}
-		// 	}
-		// 	if(count($result)==0){
-		// 		$result=NULL;
-		// 	}
-		// 		return $result;
-		// }
-
+		//search by namefood for guest
 		public static function searchFoodname($fooddata){
 			$data=FoodEloquent::where('foodname','LIKE',"%".$fooddata."%")->get();
 			$output=array();
@@ -29,6 +12,7 @@
 			return $output;
 			}
 
+		//search by namefood for guest
 		public static function Foodcal($fooddata){
 			$data=FoodEloquent::where('foodname','LIKE',"%".$fooddata."%")->get();
 			$output=array();
@@ -39,6 +23,7 @@
 			return $output;
 			}
 
+		//search by namefood for guest
 		public static function Foodtype($fooddata){
 			$data=FoodEloquent::where('foodname','LIKE',"%".$fooddata."%")->get();
 			$output=array();
@@ -48,6 +33,10 @@
 				}
 			return $output;
 			}
+
+
+
+
 
 		public static function searchFoodforuser($fooddata){
 							$data=FoodEloquent::where('foodname','LIKE',"%".$fooddata."%")->get();
@@ -59,11 +48,7 @@
 							return $output;
 			}
 
-
-
-
-
-
+		//search by namerestaurant for guest
 		public static function searchFoodtype($type){
 			$data=FoodEloquent::where('type','LIKE',"%".$type."%")->get();
 			$output=array();
@@ -74,6 +59,7 @@
 			return $output;
 			}
 
+		//search by namerestaurant for guest	
 		public static function Typecal($type){
 			$data=FoodEloquent::where('type','LIKE',"%".$type."%")->get();
 			$output=array();
@@ -84,7 +70,7 @@
 			return $output;
 			}
 
-		
+		//search by namerestaurant for guest
 		public static function Typefood($type){
 			$data=FoodEloquent::where('type','LIKE',"%".$type."%")->get();
 			$output=array();
@@ -94,6 +80,7 @@
 				}
 			return $output;
 			}
+
 
 		public static function searchtypeforuser($type){
 			$data=FoodEloquent::where('type','LIKE',"%".$type."%")->get();
@@ -107,7 +94,7 @@
 
 
 
-
+		//search by calories for guest
 		public static function searchFoodCal($cal){
 			$data=FoodEloquent::where('foodcal','LIKE',"%".$cal."%")->get();
 			$output=array();
@@ -118,6 +105,7 @@
 			return $output;
 			}
 
+		//search by calories for guest
 		public static function Caltype($cal){
 			$data=FoodEloquent::where('foodcal','LIKE',"%".$cal."%")->get();
 			$output=array();
@@ -128,6 +116,7 @@
 			return $output;
 			}
 
+		//search by calories for guest
 		public static function Calfood($cal){
 			$data=FoodEloquent::where('foodcal','LIKE',"%".$cal."%")->get();
 			$output=array();
@@ -151,7 +140,7 @@
 
 
 
-
+			//search by namesport for guest
 			public static function searchSportname($sportdata){
 			$data=SportEloquent::where('sportname','LIKE',"%".$sportdata."%")->get();
 			$output=array();
@@ -162,6 +151,7 @@
 			return $output;
 			}
 
+			//search by namesport for guest
 			public static function Sportcal($sportdata){
 			$data=SportEloquent::where('sportname','LIKE',"%".$sportdata."%")->get();
 			$output=array();
@@ -171,6 +161,7 @@
 				}
 			return $output;
 			}
+
 
 			public static function searchsportforuser($sportname){
 			$data=SportEloquent::where('sportname','LIKE',"%".$sportname."%")->get();
@@ -211,6 +202,7 @@
 					}
 			return $output;
 			}
+
 
 			public static function searchnameformid($userid){
 			$data=FoodEloquent::where('id','LIKE',"%".$userid."%")->get();
@@ -274,15 +266,7 @@
 
 
 
-			// public static function searchSportcal($caldata){
-			// $data=SportEloquent::where('sportcal','LIKE',"%".$caldata."%")->get();
-			// $output=array();
-			// $size=count($data);
-			// 		for ($a=0;$a<$size;$a++) {
-			// 			$output[$a]=$data[$a]->id;
-			// 	}
-			// return $output;
-			// }
+			
 	 
 
 	 		

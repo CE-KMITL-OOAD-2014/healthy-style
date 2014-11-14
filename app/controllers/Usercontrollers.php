@@ -1,15 +1,15 @@
 <?php
-	
-	class UserControllers extends BaseController{
 
+class UserControllers extends BaseController{
+		//call login page 
 	public function getsignin(){
 		return View::make('login');
 	}
-
+		//call regist page
 	public function getprosonalfill(){
 		return View::make('prosonalfill');
 	}
-
+		//recieve value then update to user database
 	public function postprosonalfill(){
 		$user=new User1;
 		$user->setname(Input::get('name'));
@@ -28,22 +28,24 @@
 		//return Response::make('success');
 
 	}
-
+		//call profile user page
 	public function getprofile(){
 		$obj=new User1;
-		$user=$obj->getById(Auth::user()->id);	
-			//var_dump($user);
-			return View::make('profile')->with(array("name"=>$user->getname(),"age"=>$user->getage(),"weight"=>$user->getweight(),"height"=>$user->getheight(),"act"=>$user->getact(),"gender"=>$user->getgender(),"goalweight"=>$user->getgoalweight(),"goaldate"=>$user->getgoaldate(),"bmr"=>$user->getbmr()));
+		$user=$obj->getById(Auth::user()->id);
+		$gender=$user->getgender();
+		$set=$obj->changegender($gender);
+		$act=$user->getact();
+		$setact=$obj->changeact($act);
+
+			// var_dump($set);
+			// exit();
+
+		return View::make('profile')->with(array("name"=>$user->getname(),"age"=>$user->getage(),"weight"=>$user->getweight(),"height"=>$user->getheight(),"act"=>$user->getact(),"gender"=>$user->getgender(),"goalweight"=>$user->getgoalweight(),"goaldate"=>$user->getgoaldate(),"bmr"=>$user->getbmr(),"downbmr"=>$user->getdownbmr(),"sex"=>$set,"activity"=>$setact));
 		//return View::make('profile'); 
 	}
 
 
-	// public function getaftereditprofile(){
-	//  	$obj=new User1;
-	// 	$user=$obj->getByid(Auth::user()->id);
-	// 		return View::make('aftereditprofile')->with(array("email"=>$user->getemail(),"password"=>$user->getpassword(),"name"=>$user->getname(),"age"=>$user->getage(),"weight"=>$user->getweight(),"height"=>$user->getheight(),"act"=>$user->getact(),"gender"=>$user->getgender(),"goalweight"=>$user->getgoalweight(),"goaldate"=>$user->getgoaldate()));
-	// }
-
+		//call article page
 	public function getarticle(){
 		return View::make('article');
 	}
@@ -51,11 +53,11 @@
 	public function gettheme(){
 		return View::make('theme');
 	}
-
+		//call edit profile page
 	public function geteditprosonalfill(){
 		return View::make('editprofile');
 	}
-
+		//recieve value when user edit then update to database and call profile page
 	public function posteditprosonalfill(){
 		$user=new User1;
 		$user->setname(Input::get('name'));

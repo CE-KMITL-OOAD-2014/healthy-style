@@ -35,10 +35,24 @@
           
             
             <form action="{{url('/searchfoodforuser')}}" method="post"> 
-                <br><input type="radio" name="meal" value="เช้า" checked=true>&nbspมื้อเช้า&nbsp&nbsp&nbsp   
+            	<br>
+
+            	จำนวนวันที่ตั้งเป้าหมายไว้ : {{$day}} วัน
+            	<br><br>
+            	<h3>เลือกวันที่ต้องการบันทึก</h3> 
+				<select class="form-control" name="day">
+            		@for ($i=1; $i < $day+1 ; $i++)
+
+                             <option name="day" value="{{$i}}">{{$i}}</option>
+					
+                   	@endfor
+				</select>  
+				
+
+                <br><h3>เลือกมื้ออาหาร</h3><input type="radio" name="meal" value="เช้า" checked=true>&nbspมื้อเช้า&nbsp&nbsp&nbsp   
                 <input type="radio" name="meal" value="กลางวัน">&nbspมื้อกลางวัน&nbsp&nbsp&nbsp                      
                 <input type="radio" name="meal" value="เย็น">&nbspมื้อเย็น
-
+                <br><br><br>
                 <table class="table" id="table">
                     @if ($searchFoodname==NULL)
                         <tr class="primary">

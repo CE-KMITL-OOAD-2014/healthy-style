@@ -13,6 +13,10 @@
 				<h3>Food Diary...</h3>
 			</div> <!-- /widget-header -->
 			<br>
+			ค่าแคลอรี่ที่ควรได้รับในแต่ละวัน : {{$bmr}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			ค่าแคลอรี่ที่ควรได้รับในแต่ละวันสำหรับผู้ที่ต้องการลดน้ำหนัก : {{$downbmr}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			
+			<br><br>
 			<div class="widget-content">
 
 				<table class="table table-striped table-bordered">
@@ -23,7 +27,7 @@
 							<th>ชื่อร้านอาหาร</th>
 							<th>มื้ออาหาร</th>
 							<th>ค่าแคลอรี่</th>
-							<th>ค่าแคลอรี่ที่เหลือ</th>
+							<th>ค่าแคลอรี่ที่ถูกใช้แล้วในวันที่บันทึก</th>
 							
 						</tr>
 					</thead>
@@ -31,12 +35,13 @@
 
 						@for ($i=0; $i <count($newuser) ; $i++)
 						<tr>
-							<td> {{$newuser[$i]->updated_at}}</a></td>
+							<td> {{$newuser[$i]->day}}</a></td>
 							<td> {{$foodname[$i]->getfoodname()}}</a></td>
 							<td> {{$foodname[$i]->gettype()}}</a></td>
 							<td> {{$newuser[$i]->meal}}</a></td>
 							<td> {{$foodname[$i]->getfoodcal()}}</a></td>
 							<td> {{$newuser[$i]->leftbmr}}</a></td>
+
 							
 						</tr>
 
@@ -54,30 +59,29 @@
 						<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
+							<th>วันที่บันทึกกิจกรรม</th>
 							<th>ชื่อกิจกรรม</th>
 							<th>ค่าแคลอรี่</th>
+						
 							
 						</tr>
 					</thead>
 					<tbody>
 
-						@for ($i=0; $i <count($sportid) ; $i++)
-                            <tr>
-                                <?php
-                                		$sport = new Search;
-										$namesport = $sport->searchnamesportformid($sportid[$i]);
-										$calsport=$sport->searchcalsportformid($sportid[$i]);
-                                ?>
+						@for ($i=0; $i <count($newuser1) ; $i++)
+						<tr>
+							<td> {{$newuser1[$i]->day}}</a></td>
+							<td> {{$sportname[$i]->getsportname()}}</a></td>
+							<td> {{$sportname[$i]->getsportcal()}}</a></td>
+					
 
-                                <td> {{$namesport[0]}}</a></td>
-                                <td> {{$calsport[0]}}</a></td>
+							
+						</tr>
 
+						@endfor
+					</tbody>
 
-                            </tr>
-
-                        @endfor
-
-											</tbody>
+											
 										</table>
 
 									</div> <!-- /widget-content -->

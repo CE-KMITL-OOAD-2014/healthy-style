@@ -1,57 +1,9 @@
-<!DOCTYPE html>
-    <html lang="">
-    
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @yield('title')
-    <!-- Bootstrap CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    
-    <body>
-      <div class="navbar navbar-inverse">
-      <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+@extends ('theme')
+@section('title')
+<title>Profile...</title>
+@stop
+@section('body')
 
-    <a class="navbar-brand" href="/">Healthy Style</a>
-    </div>
-    <div class="navbar-collapse collapse navbar-inverse-collapse">
-    
-    <ul class="nav navbar-nav navbar-right">
-    
-    <li class="active"><a href="/article">บทความ</a></li>
-    
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">ค่าแคลอรี่<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-        <li><a href="#">อาหาร</a></li>
-        <li><a href="#">กิจกรรมการเผาผลาญพลังงาน</a></li>
-        </ul>
-    </li>
-
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">โปรแกรมการคำนวณ<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-        <li><a href="/bmi">BMI</a></li>
-        <li><a href="/bmr">BMR</a></li>
-      </ul>
-    </li>
-
-      <li><a href="/signup">Register</a></li>
-      <li><a href="/signout">Log Out</a></li>
-
-    </ul>
-    </div>
-    </div>
-    </body>
-
-    <br>
     <div class="container">
 
       <form action="{{url('/editprofile')}}" method="post">
@@ -120,8 +72,8 @@
                       <div class="control-group">
                           <td>เพศ:</td>                    
                          <div class="controls">
-                          <td><input type="radio" name="gender" value="male" checked=true>&nbspชาย&nbsp&nbsp&nbsp             
-                          <input type="radio" name="gender" value="female">&nbspหญิง</td>
+                          <td><input type="radio" name="gender" value="0" checked=true>&nbspชาย&nbsp&nbsp&nbsp             
+                          <input type="radio" name="gender" value="1">&nbspหญิง</td>
                          </div>
                       </div>
                       </tr>
@@ -130,15 +82,15 @@
                       <div class="form-group">
                           <td>ระดับกิจกรรมในชีวิตประจำวัน :</td>
                           <div class="controls">
-                              <td><input type="radio" name="act" value="น้อยมาก">&nbsp Sedentary <br>
+                              <td><input type="radio" name="act" value="1">&nbsp Sedentary <br>
                               &nbsp&nbsp&nbsp&nbsp&nbsp<span class="help-inline">(น้อยมาก: ไม่ออกกำลังกาย-ทำงานที่ส่วนใหญ่นั่ง) </span><br>
-                                          <input type="radio" name="act" value="น้อย">&nbsp Lightly active <br>
+                                          <input type="radio" name="act" value="2">&nbsp Lightly active <br>
                               &nbsp&nbsp&nbsp&nbsp&nbsp<span class="help-inline">(น้อย: ออกกำลังกายหรืเล่นกีฬา 1-2 วัน/อาทิตย์ หรือทำงานที่มีการเคลื่อนไหว) </span><br>
-                              <input type="radio" name="act" value="ปานกลาง">&nbsp Moderately active <br>
+                              <input type="radio" name="act" value="3">&nbsp Moderately active <br>
                               &nbsp&nbsp&nbsp&nbsp&nbsp<span class="help-inline">(ปานกลาง: ออกกำลังกายหรือเล่นกีฬา 3-5 วัน/อาทิตย์) </span><br>
-                              <input type="radio" name="act" value="มาก">&nbsp Very active <br>
+                              <input type="radio" name="act" value="4">&nbsp Very active <br>
                               &nbsp&nbsp&nbsp&nbsp&nbsp<span class="help-inline">(มาก: ออกกำลังกายหรือเล่นกีฬา 6-7 วัน/อาทิตย์) </span><br>
-                              <input type="radio" name="act" value="มากที่สุด">&nbsp Extra active<br>
+                              <input type="radio" name="act" value="5">&nbsp Extra active<br>
                               &nbsp&nbsp&nbsp&nbsp&nbsp<span class="help-inline">(มากที่สุด: ออกกำลังกายหรือเล่นกีฬาอย่างหนัก, อาชีพที่ใช้แรงงาน) </span><br></td>
                     
                     </div>
@@ -155,14 +107,14 @@
 
                       <tr>
                       <div class="form-group">
-                          <td>เวลาเป้าหมาย ( สัปดาห์ ) :</td>
+                          <td>วันเป้าหมาย  :</td>
                           <td><input type="text" name="goaldate" id="goaldate" class="form-control input-lg" placeholder="" tabindex="4"></td>
                         </div>
                       </tr>
 
                       <tr>
                         <div class="form-actions">
-                          <td><button type="submit" value="Send" class="btn btn-large btn-primary">Update</button></td>
+                          <td><button type="submit" value="Send" class="btn btn-large btn-primary">Update Profile</button></td>
                         </div>    
                       </tr>
 
@@ -187,6 +139,4 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-
-</html>
+@stop

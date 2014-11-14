@@ -27,14 +27,14 @@ class likeFood{
 	}
 
 
-
+//new favorite food then update to database 
 	public function newFoodlike(){
 		$new=new likeFoodEloquent;
 		$new->userid=Auth::user()->id;
 		$new->foodlikeid=$this->foodlikeid;
 		$new->save();
 	}
-
+//recieve id to find object from database 
 	public static function getbyidFoodlike($id){
 		$data=likeFoodEloquent::find($id);
 		if($data==NULL){
@@ -47,7 +47,7 @@ class likeFood{
 		
 		return $obj;
 	}
-
+//recieve value when user edit then update to database
 	public function editFoodlike(){
 		$edit=likeFoodEloquent::find($this->id);
 		$edit->userid=$this->userid;

@@ -12,6 +12,7 @@ class User1{
 	private $password;
 	private $email;	
 	private $bmr;
+	private $downbmr;
 	private $diffweight;
 
 
@@ -50,6 +51,9 @@ class User1{
 	}
 	public function getbmr(){
 		return $this->bmr;
+	}
+	public function getdownbmr(){
+		return $this->downbmr;
 	}
 	public function getdiffweight(){
 		return $this->diffweight;
@@ -90,11 +94,45 @@ class User1{
 	public function setbmr($bmr){
 		$this->bmr=$bmr;
 	}
+	public function setdownbmr($downbmr){
+		$this->downbmr=$downbmr;
+	}
 	public function setdiffweight($diffweight){
 		$this->diffweight=$diffweight;
 	}
 
-
+	//find BMR user who want to lost weight 
+	public function caldownBMR(){
+		if($this->gender==0){
+			$txtSum= (66+(13.7*$this->weight)+(5*$this->height)-(6.8*$this->age));
+			if($this->act==1){
+				$txtSum = ($txtSum-500)*1.2;
+			}else if($this->act==2){
+				$txtSum = ($txtSum-500)*1.375;
+			}else if($this->act==3){
+				$txtSum = ($txtSum-500)*1.55;
+			}else if($this->act==4){
+				$txtSum = ($txtSum-500)*1.725;
+			}else{
+				$txtSum = ($txtSum-500)*1.9;
+			}
+		}else{
+			$txtSum= (665+(9.6*$this->weight)+(1.8*$this->height)-(4.7*$this->age));
+			if($this->act==1){
+				$txtSum = ($txtSum-500)*1.2;
+			}else if($this->act==2){
+				$txtSum = ($txtSum-500)*1.375;
+			}else if($this->act==3){
+				$txtSum = ($txtSum-500)*1.55;
+			}else if($this->act==4){
+				$txtSum =($txtSum-500)*1.725;
+			}else{
+				$txtSum =($txtSum-500)*1.9;
+			}
+		}
+		return $txtSum;
+	}
+	//calculate BMR 
 	public function calBMR(){
 		if($this->gender==0){
 			$txtSum= 66+(13.7*$this->weight)+(5*$this->height)-(6.8*$this->age);
@@ -125,13 +163,35 @@ class User1{
 		}
 		return $txtSum;
 	}
-
-	public function diffweightuser(){
-			$diff=($this->weight)-($this->goalweight);
-
-			return $diff;
+	//change gender int to string
+	public function changegender($gender){
+		if($gender==0){
+			return "ชาย";
+		}else{
+			return "หญิง";
+		}
 	}
+	//change activity int to string
+	public function changeact($act){
+		if($act==1){
+			return "น้อยมาก";
+		}else if($act==2){
+			return "น้อย";
+		}else if($act==3){
+			return "ปานกลาง";
+		}else if($act==4){
+			return "มาก";
+		}else{
+			return "มากที่สุด";
+		}
+	}
+	//calculate different Oldweight with goalWeight 
+	public function diffweightuser(){
+		$diff=($this->weight)-($this->goalweight);
 
+		return $diff;
+	}
+	//recieve value user then update to database 
 	public function newUser1(){
 		$new=new User1Eloquent;
 		$new->id=$this->id;
@@ -146,10 +206,11 @@ class User1{
 		$new->password=$this->password;
 		$new->email=$this->email;
 		$new->bmr=$this->calBMR();
+		$new->downbmr=$this->caldownBMR();
 		$new->diffweight=$this->diffweightuser();
 		$new->save();
 	}
-
+	//recieve id to find object from database 
 	public static function getById($id){
 		$data=User1Eloquent::find($id);
 		if($data==NULL){
@@ -168,11 +229,12 @@ class User1{
 		$obj->password=$data->password;
 		$obj->email=$data->email;
 		$obj->bmr=$data->bmr;
+		$obj->downbmr=$data->downbmr;
 		$obj->diffweight=$data->diffweight;
 		
 		return $obj;
 	}
-
+	//recieve value when user edit then update to database 
 	public function editUser1(){
 		$edit=User1Eloquent::find($this->id);
 		$edit->name=$this->name;
@@ -185,10 +247,13 @@ class User1{
 		$edit->goaldate=$this->goaldate;
 		$edit->password=$this->password;
 		$edit->email=$this->email;
+		$edit->bmr=$this->calBMR();
+		$edit->downbmr=$this->caldownBMR();
+		$edit->diffweight=$this->diffweightuser();
 		$edit->save();	
 	}
 
-
+	//recieve value when user edit then update to database 
 	public function editUserprofile($id){
 		$edit=User1Eloquent::find($id);
 				// if($this==NULL){
@@ -204,6 +269,9 @@ class User1{
 		$edit->goaldate=$this->goaldate;
 		$edit->password=$this->password;
 		$edit->email=$this->email;
+		$edit->bmr=$this->calBMR();
+		$edit->downbmr=$this->caldownBMR();
+		$edit->diffweight=$this->diffweightuser();
 			//var_dump($edit);
 		$edit->save();	
 
