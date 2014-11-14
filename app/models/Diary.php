@@ -5,6 +5,7 @@
 		private $userid;
 		private $foodid;
 		private $meal;
+		private $leftbmr;
 
 
 		public function getid(){
@@ -19,6 +20,9 @@
 		public function getmeal(){
 			return $this->meal;
 		}
+		public function getleftbmr(){
+			return $this->leftbmr;
+		}
 
 
 		public function setuserid($value){
@@ -30,6 +34,28 @@
 		public function setmeal($value){
 			$this->meal=$value;
 		}
+		public function setleftbmr($value){
+			$this->leftbmr=$value;
+		}
+
+
+	public function newSumcal(){
+			$user=User1::getById($this->userid);
+			$food=Food::getByIdFood($this->foodid);
+			
+				$ans=($user->getbmr())-($food->getfoodcal());	
+
+				//$ans=$ans-$food->getfoodcal();
+
+			return $ans;
+		}
+
+	public function oldSumcal($oldbmr){
+			$food=Food::getByIdFood($this->foodid);
+				$ans=$oldbmr-$food->getfoodcal();
+
+			return $ans;
+		}
 
 
 	public function newDiary(){
@@ -37,6 +63,7 @@
 		$new->userid=Auth::user()->id;
 		$new->foodid=$this->foodid;
 		$new->meal=$this->meal;
+		$new->leftbmr=$this->leftbmr;
 		$new->save();
 	}
 
@@ -50,6 +77,7 @@
 		$obj->userid=$data->userid;
 		$obj->foodid=$data->foodid;
 		$obj->meal=$data->meal;
+		$obj->leftbmr=$data->leftbmr;
 	
 		return $obj;
 	}
@@ -61,6 +89,37 @@
 		$edit->meal=$this->meal;
 		$edit->save();
 	}
+
+	public static function searchiduser($id){
+			$data=DiaryEloquent::where('userID','=',$id)->get();
+			$output=array();
+			$size=count($data);
+				// 	for ($a=0;$a<$size;$a++) {
+				// 		$output[$a]=$data[$a]->iduser;
+				// }
+			return $data;
+	}
+
+	public static function searchidfood($id){
+			$data=DiaryEloquent::where('userID','=',$id)->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->foodID;
+				}
+			return $output;
+	}
+
+	public static function searchleftbmr($id){
+			$data=DiaryEloquent::where('userID','=',$id)->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->leftbmr;
+				}
+			return $output;
+	}
+
 
 	}
 

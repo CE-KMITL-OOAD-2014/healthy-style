@@ -12,9 +12,6 @@
 		private $weightday;
 
 
-
-	
-
 		public function getid(){
 			return $this->id;
 		}
@@ -39,7 +36,7 @@
 		public function getweightday(){
 			return $this->$weightday;
 		}
-
+		
 		
 		public function setage($value){
 			$this->age=$value;
@@ -118,21 +115,21 @@
 		}
 
 
-		public function diffweight(){
-			$diff=$this->weight-$this->goalweight;
-			$diffweight=$diff/100;
+		// public function diffweight(){
+		// 	$diff=$this->weight-$this->goalweight;
+		// 	$diffweight=$diff/100;
 
-			$this->diffweight=$diffweight;
-			return $this->diffweight;
-		}
+		// 	$this->diffweight=$diffweight;
+		// 	return $this->diffweight;
+		// }
 
-		public function diffweighttoday(){
-			$diffday=$this->weight-$this->weightday;
-			$percent=$diffday/diffweight();
+		// public function diffweighttoday(){
+		// 	$diffday=$this->weight-$this->weightday;
+		// 	$percent=$diffday/diffweight();
 
-			$this->percent=$percent;
-			return $this->percent;
-		}
+		// 	$this->percent=$percent;
+		// 	return $this->percent;
+		// }
 
 		// public function newCal(){
 		// 	$new=new calculateEloquent;

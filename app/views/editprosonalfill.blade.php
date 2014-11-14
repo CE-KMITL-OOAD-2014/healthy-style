@@ -15,7 +15,7 @@
     			<div class="form-group">
                     
                     <div class="form-group">
-                            <input type="text" name="age" id="age" class="form-control input-lg" placeholder="Age" tabindex="4">
+                            <input type="text" name="age" id="age" required value="<?php echo Auth::User1()->age;?>" class="form-control input-lg"  tabindex="4">
                     </div>
 
                     <div class="form-group">

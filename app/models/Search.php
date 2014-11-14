@@ -242,6 +242,16 @@
 			return $output;
 			}
 
+		public static function searchbmrformid($userid){
+			$data=DiaryEloquent::where('id','LIKE',"%".$userid."%")->get();
+			$output=array();
+			$size=count($data);
+					for ($a=0;$a<$size;$a++) {
+						$output[$a]=$data[$a]->leftbmr;
+				}
+			return $output;
+			}
+
 			public static function searchnamesportformid($userid){
 			$data=SportEloquent::where('id','LIKE',"%".$userid."%")->get();
 			$output=array();

@@ -81,6 +81,8 @@ Route::get('/looklikefood','DiaryControllers@getlooklikefood');
 Route::get('/showdiary','DiaryControllers@getshowdiary');
 //Route::post('/showdiary','DiaryControllers@postshowdiary');
 
+Route::get('/changeweight','DiaryControllers@getchangeweight')
+
 
 	//Route::post('prosonal','Usercontrollers@postprosonalfill');
 

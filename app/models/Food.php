@@ -61,21 +61,19 @@
 			$edit->save();
 		}
 
-		//  public static function getAll(){
-		// 	$data=FoodEloquent::all();
-		// 		$size=count($data);
-		// 		$food= array( );
+		public static function searchidfood($id){
+			$data=FoodEloquent::find($id);
+			if($data==NULL){
+					return NULL;
+				}
+			$obj=new Food;
+			$obj->id=$data->id;
+			$obj->foodname=$data->foodname;
+			$obj->type=$data->type;
+			$obj->foodcal=$data->foodcal;
+			return $obj;
+	}
 
-		// 	for($i=0;$i<$size;$i++){
-		// 		$obj=new Food;
-		// 		$obj->id=$data[$i]->id;
-		// 		$obj->foodname=$data[$i]->foodname;
-		// 		$obj->type=$data[$i]->type;
-		// 		$obj->foodcal=$data[$i]->foodcal;
-		// 		$food[$i]=$obj;
-		// 	}
-		// 			return $food;		
-		// }
 
 	}
 ?>

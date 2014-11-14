@@ -4,8 +4,8 @@ class DiaryControllers extends BaseController{
 	
 	public function getSaveweight(){
 		$obj=new User1;
-		$user=$obj->getById(Auth::user()->id);	
-		var_dump($user);
+		$user=$obj->getById(Auth::user()->id);
+		
 		return View::make('saveweight')->with(array("weight"=>$user->getweight(),"goalweight"=>$user->getgoalweight()));
 			//return View::make('saveweight');
 	}
@@ -15,6 +15,13 @@ class DiaryControllers extends BaseController{
 		$user->setiduser(Auth::user()->id);
 		$user->setnewweight(Input::get('weightday'));
 		$user->newreweight();
+		// $user->setpercent(0);
+		// $id = reweightEloquent::where('iduser','=',Auth::user()->id)->get();
+		// 	if($id == NULL){
+		// 		$user->newreweight();
+		// 	}else{
+		// 		$user->editreweight(Auth::user()->id);
+		// 	} 
 		var_dump($user);
 		return Redirect::to('/saveweight');
 	}
@@ -66,7 +73,20 @@ class DiaryControllers extends BaseController{
 		$save->setuserid(Auth::user()->id);
 		$save->setfoodid($obj['savefood']);
 		$save->setmeal(Input::get('meal'));
+		$obj=$save->newSumcal();
+		$save->setleftbmr($obj);
 		$save->newDiary();
+		// $find=new Diary;
+		// $find->searchiduser(Auth::user()->id);
+		// if($find==NULL){
+			
+		// }else{
+		// 	$oldbmr=new Diary;
+		// 	$oldbmr->searchleftbmr(Auth::user()->id);
+		// 	$obj=$save->oldSumcal($oldbmr);
+		// 	$save->setleftbmr($obj);
+		// 	$save->newDiary();
+		// }
 		var_dump($save);
 		return Redirect::to('/searchfoodforuser');
 	}
@@ -152,12 +172,41 @@ class DiaryControllers extends BaseController{
 
 	public function getshowdiary(){
 		$iduser=new Search;
-		$idfood=$iduser->searchsavefoodid(Auth::user()->id);
+		//$idfood=$iduser->searchsavefoodid(Auth::user()->id);
 		$idsport=$iduser->searchsavesportid(Auth::user()->id);
+		
+		$obj1=new Diary;
+		$user1=new Diary;
+		$user1=$obj1->searchiduser(Auth::user()->id);
+		
+		$obj2=new Diary;
+		//$user2=new Diary;
+		$user2=$obj2->searchidfood(Auth::user()->id);
 
-		return View::make('showdiary')->with(array('foodid'=>$idfood,'sportid'=>$idsport));
+
+		$food=new Food;
+		$namefood=array();
+		for ($i=0; $i <count($user2) ; $i++) { 
+			$namefood[$i]=$food->searchidfood($user2[$i]);
+		}
+		
+		
+
+		return View::make('showdiary')->with(array("newuser"=>$user1,"foodname"=>$namefood,'sportid'=>$idsport));
 
 		//return View::make('lookforlikefood');
+	}
+
+
+	public function getchangeweight(){
+		$obj=new User1;
+		$user=$obj->getById(Auth::user()->id);
+		$obj1=new reweight;
+		$user1=new reweight;
+		$user1=$obj1->searchiduser(Auth::user()->id);
+		//var_dump($user1[2]->newweight);
+		return View::make('diaryweight')->with(array("weight"=>$user->getweight(),"diff"=>$user->getdiffweight(),"goalweight"=>$user->getgoalweight(),"newuser"=>$user1));
+			//return View::make('saveweight');
 	}
 
 

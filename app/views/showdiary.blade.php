@@ -18,33 +18,31 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
+							<th>วันที่บันทึกอาหาร</th>
 							<th>ชื่ออาหาร</th>
 							<th>ชื่อร้านอาหาร</th>
+							<th>มื้ออาหาร</th>
 							<th>ค่าแคลอรี่</th>
+							<th>ค่าแคลอรี่ที่เหลือ</th>
 							
 						</tr>
 					</thead>
 					<tbody>
 
-						@for ($i=0; $i <count($foodid) ; $i++)
-                            <tr>
-                                <?php
-                                		$food = new Search;
-										$namefood = $food->searchnameformid($foodid[$i]);
-										$calfood=$food->searchcalformid($foodid[$i]);
-										$typefood=$food->searchtypeformid($foodid[$i]);
-                                ?>
+						@for ($i=0; $i <count($newuser) ; $i++)
+						<tr>
+							<td> {{$newuser[$i]->updated_at}}</a></td>
+							<td> {{$foodname[$i]->getfoodname()}}</a></td>
+							<td> {{$foodname[$i]->gettype()}}</a></td>
+							<td> {{$newuser[$i]->meal}}</a></td>
+							<td> {{$foodname[$i]->getfoodcal()}}</a></td>
+							<td> {{$newuser[$i]->leftbmr}}</a></td>
+							
+						</tr>
 
-                                <td> {{$namefood[0]}}</a></td>
-                                <td> {{$typefood[0]}}</a></td>
-                                <td> {{$calfood[0]}}</a></td>
-
-                            </tr>
-
-                        @endfor
-
-											</tbody>
-										</table>
+						@endfor
+					</tbody>
+						</table>
 
 						<br>
 						<br>

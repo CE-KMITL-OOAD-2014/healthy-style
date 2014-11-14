@@ -9,36 +9,36 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-8">
-			 <h1>Enter your weight today </h1>
+			 <h1>บันทึกและดูการเปลี่ยนแปลงของน้ำหนัก... </h1>
 			 <br>
 			 
 			 <div class="container">
 				<div class="row">
-					<div class="col-md-6"><span class="pull-left">น้ำหนักเริ่มต้น : {{$weight}} </span></div>
+					<div class="col-md-3"><span class="pull-left">น้ำหนักเริ่มต้น : {{$weight}} </span></div>
 					
-					<div class="col-md-6"><span class="pull-middle">น้ำหนักเป้าหมาย : {{$goalweight}} </span></div>
+					<div class="col-md-3"><span class="pull-right">น้ำหนักเป้าหมาย : {{$goalweight}} </span></div>
 				</div>
 			</div>
-			 
 			<br><br>
-				<div class="progress">
-					<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-					60%
-					</div>
-				</div>
-			 
 			 <form class="navbar-form navbar-right" role="search">
-                    <div class="col-lg-3">
-                        <input type="text" class="form-control" name="weightday" placeholder="YOUR WEIGHT">
-                    </div>
+                    <div class="col-lg-6">
+                        <h5>น้ำหนักปัจจุบันที่ต้องการบันทึก :</h5>
+                        <br><input type="text" name="weightday" class="form-control" placeholder="YOUR WEIGHT">
+                    	<br><button type="submit" class="btn btn-primary">submit</button> 
+            </form>
+
+           	</div>
+    </form>
+            <br><br><br><br><br><br><br><br>
+            <form action="{{url('changeweight')}}" method="get" >
+                    	&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-success">ดูบันทึกการเปลี่ยนแปลงของน้ำหนัก</button>
+            </form>
                     
-                    <button type="submit" class="btn btn-primary">submit</button>
-                </form>
+               
         
-			</div>
-		</div>
-		</form>
-</div>
+	</div>
+
+		
 
    
     <!-- /.container -->
