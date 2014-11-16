@@ -115,34 +115,7 @@ class calculate{
 	}
 
 
-		// public function diffweight(){
-		// 	$diff=$this->weight-$this->goalweight;
-		// 	$diffweight=$diff/100;
-
-		// 	$this->diffweight=$diffweight;
-		// 	return $this->diffweight;
-		// }
-
-		// public function diffweighttoday(){
-		// 	$diffday=$this->weight-$this->weightday;
-		// 	$percent=$diffday/diffweight();
-
-		// 	$this->percent=$percent;
-		// 	return $this->percent;
-		// }
-
-		// public function newCal(){
-		// 	$new=new calculateEloquent;
-		// 	$new->id=$this->id;
-		// 	$new->iduser=Auth::user()->id;
-		// 	$new->age=$this->age;
-		// 	$new->weight=$this->weight;
-		// 	$new->height=$this->height;
-		// 	$new->act=$this->act;
-		// 	$new->gender=$this->gender;
-		// 	$user=$new->calBMR();
-		// 	$new->save();
-		// }
+	
 
 	
 }

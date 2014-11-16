@@ -4,18 +4,11 @@
 
 		public function testBMR()
 		{
-			$weight=Mockery::mock('calculate');
-			$height=Mockery::mock('calculate');
-			$age=Mockery::mock('calculate');
-			$act=Mockery::mock('calculate');
-			$gender=Mockery::mock('calculate');
-			$weight->shouldReceive('getweight')->andReturn($weight);
-			$height->shouldReceive('getheight')->andReturn($height);
-			$age->shouldReceive('getage')->andReturn($age);
-			$act->shouldReceive('getact')->andReturn($act);
-			$gender->shouldReceive('getgender')->andReturn($gender);
-			$BMRcal=new calculate($weight,$height,$age,$act,$gender);
-			
+			$weight=45;
+			$height=165;
+			$age=20;
+			$act=4;
+			$gender=0;
 		
 			if($gender==0){ //gender=0 คือ male
 				$BMR= 66+(13.7*$weight)+(5*$height)-(6.8*$age);
@@ -45,9 +38,11 @@
 					}
 			}
 			
-			$BMRcal=$BMRcal->calBMR();
 
-			$this->assertEquals($BMR,$BMRcal);
+			$Bmr=new calculate;
+			$Bmrcal=$Bmr->calBMR();
+
+			$this->assertEquals($BMR,$Bmrcal);
 		}
 	}
 

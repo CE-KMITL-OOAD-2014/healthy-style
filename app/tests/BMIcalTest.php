@@ -4,16 +4,15 @@
 
 		public function testBMI()
 		{
-			$weight=Mockery::mock('calculate');
-			$height=Mockery::mock('calculate');
-			$weight->shouldReceive('getweight')->andReturn($weight);
-			$height->shouldReceive('getheight')->andReturn($height);
-			$BMIcal=new calculate($weight,$height);
-			
+			$weight=45;
+			$height=165;
 			$BMI=$weight/($height*$height);
-			$BMIcal=$BMIcal->calBMI();
+			
 
-			$this->assertEquals($BMI,$BMIcal);
+			$Bmi=new calculate;
+			$Bmical=$Bmi-> calBMI();
+
+			$this->assertEquals($BMI,$Bmical);
 		}
 	}
 
