@@ -1,7 +1,6 @@
 <?php
 
 class DiaryControllers extends BaseController{
-	
 	//call update weight page
 	public function getSaveweight(){
 		$obj=new User1;
@@ -10,7 +9,6 @@ class DiaryControllers extends BaseController{
 		return View::make('saveweight')->with(array("weight"=>$user->getweight(),"goalweight"=>$user->getgoalweight()));
 			//return View::make('saveweight');
 	}
-
 	//recieve weight value then update to database 
 	public function postSaveweight(){
 		$user=new reweight;
@@ -26,7 +24,6 @@ class DiaryControllers extends BaseController{
 	public function getchooseSave(){
 		return View::make('chooseforsave');
 	}
-
 	// when user choose ... then go to that page
 	public function postchooseSave(){
 		$choose=Input::get('choose');
@@ -39,7 +36,6 @@ class DiaryControllers extends BaseController{
 		}
 		
 	}
-
 	//find food search by user 
 	public function getfood(){
 		$obj=Input::get('search');
@@ -71,7 +67,6 @@ class DiaryControllers extends BaseController{
 
 		return View::make('foodforuser')->with(array('searchFoodname'=>$searchfood,'typefood'=>$typefood,'calfood'=>$calfood,'foodid'=>$id,'day'=>$goaldate));
 	}
-	
 	//update food when user choose then calculate calroies 
 	public function postfood(){
 		$obj=Input::all();
@@ -83,10 +78,20 @@ class DiaryControllers extends BaseController{
 		$obj=$save->searchidfood(Auth::user()->id,Input::get('day'),$obj['savefood']);
 		$save->setleftbmr($obj);
 		$save->newDiary();
+		// $find=new Diary;
+		// $find->searchiduser(Auth::user()->id);
+		// if($find==NULL){
+		
+		// }else{
+		// 	$oldbmr=new Diary;
+		// 	$oldbmr->searchleftbmr(Auth::user()->id);
+		// 	$obj=$save->oldSumcal($oldbmr);
+		// 	$save->setleftbmr($obj);
+		// 	$save->newDiary();
+		// }
 		var_dump($save);
 		return Redirect::to('/searchfoodforuser');
 	}
-
 	//find sport search by user 
 	public function getsport(){
 		$obj=Input::get('search');
@@ -100,7 +105,6 @@ class DiaryControllers extends BaseController{
 
 		return View::make('sportforuser')->with(array('searchSportname'=>$searchsport,'calsport'=>$calsport,'id'=>$id,'day'=>$goaldate));
 	}
-
 	//update sport when user choose then calculate calroies 
 	public function postsport(){
 		$obj=Input::all();
@@ -112,12 +116,10 @@ class DiaryControllers extends BaseController{
 		var_dump($save);
 		return Redirect::to('/searchsportforuser');
 	}
-
 	//go to page to update or view
 	public function getchooseforlooklike(){
 		return View::make('chooseforlooklike');
 	}
-
 	//go to page when is choose then go to that page 
 	public function postchooseforlooklike(){
 		$choose=Input::get('choose');
@@ -125,10 +127,9 @@ class DiaryControllers extends BaseController{
 			return Redirect::to('/likefood');
 		}else{
 			return Redirect::to('/looklikefood');
-		}	
+		}
+		
 	}
-
-
 	//find favorite food
 	public function getlikeFood(){
 		$obj=Input::get('search');
@@ -155,8 +156,6 @@ class DiaryControllers extends BaseController{
 
 		return View::make('likefood')->with(array('searchFoodname'=>$searchfood,'typefood'=>$typefood,'calfood'=>$calfood,'foodid'=>$id));
 	}
-
-
 	//recieve value then update to database 
 	public function postlikeFood(){
 		$obj=Input::all();
@@ -167,8 +166,6 @@ class DiaryControllers extends BaseController{
 		var_dump($save);
 		return Redirect::to('/likefood');
 	}
-
-
 	//view favorite food
 	public function getlooklikefood(){
 		$iduser=new Search;
@@ -178,10 +175,13 @@ class DiaryControllers extends BaseController{
 
 		//return View::make('lookforlikefood');
 	}
-
-
 	//call value from database to show
 	public function getshowdiary(){
+		//$iduser=new Search;
+		//$idfood=$iduser->searchsavefoodid(Auth::user()->id);
+		//$idsport=$iduser->searchsavesportid(Auth::user()->id);
+		
+		
 		$obj1=new Diary;
 		$user1=new Diary;
 		$user1=$obj1->searchiduser(Auth::user()->id);
@@ -213,13 +213,16 @@ class DiaryControllers extends BaseController{
 			$namesport[$i]=$sport->searchsport($usersport2[$i]);
 		}
 		
+
 		$obj=new User1;
 		$user=$obj->getById(Auth::user()->id);
 
+
+
 		return View::make('showdiary')->with(array("newuser"=>$user1,"newuser1"=>$usersport,"foodname"=>$namefood,"sportname"=>$namesport,"bmr"=>$user->getbmr(),"downbmr"=>$user->getdownbmr()));
 
+		//return View::make('lookforlikefood');
 	}
-
 
 	//view when user update weight 
 	public function getchangeweight(){
@@ -228,9 +231,9 @@ class DiaryControllers extends BaseController{
 		$obj1=new reweight;
 		$user1=new reweight;
 		$user1=$obj1->searchiduser(Auth::user()->id);
-		
+		//var_dump($user1[2]->newweight);
 		return View::make('diaryweight')->with(array("weight"=>$user->getweight(),"diff"=>$user->getdiffweight(),"goalweight"=>$user->getgoalweight(),"newuser"=>$user1));
-			
+			//return View::make('saveweight');
 	}
 
 

@@ -73,7 +73,11 @@
 
     			<div class="form-actions">
 					<button type="submit" class="btn btn-large btn-primary">คำนวณ</button><br>
-					    				
+					<br><label for="BMR" class="control-label">    
+						ค่าแคลอรี่ที่ควรได้รับต่อวัน :
+                    </label>
+					&nbsp&nbsp<input name="txtSum" id="txtSim" type="text">
+    				
     			</div>
 			
     		</form>

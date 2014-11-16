@@ -1,6 +1,6 @@
 <?php
 
-	class BMIcalTest extends TestCase{
+	class bmicalTest extends TestCase{
 
 		public function testBMI()
 		{

@@ -46,6 +46,17 @@ class Diary{
 	}
 
 
+	// public function newSumcal(){
+	// 		$user=User1::getById($this->userid);
+	// 		$food=Food::getByIdFood($this->foodid);
+	
+
+	// 			//$ans=($user->getbmr())-($food->getfoodcal());	
+
+	// 			//$ans=$ans-$food->getfoodcal();
+
+	// 		return $ans;
+	// 	}
 
 //add food to database
 	public function newDiary(){
@@ -57,7 +68,6 @@ class Diary{
 		$new->day=$this->day;
 		$new->save();
 	}
-	
 //recieve id to find object from database
 	public static function getbyidDiary($id){
 		$data=DiaryEloquent::find($id);
@@ -74,7 +84,6 @@ class Diary{
 		
 		return $obj;
 	}
-
 //recieve value when user edit then update to database
 	public function editDiary(){
 		$edit=DiaryEloquent::find($this->id);
@@ -83,7 +92,6 @@ class Diary{
 		$edit->meal=$this->meal;
 		$edit->save();
 	}
-
 //find id user 
 	public static function searchiduser($id){
 		$data=DiaryEloquent::where('userID','=',$id)->get();
@@ -94,7 +102,6 @@ class Diary{
 				// }
 		return $data;
 	}
-
 //find by id
 	public static function searchidfood($id,$day,$foodid){
 		$data=DiaryEloquent::where('userID','=',$id);
@@ -118,7 +125,6 @@ class Diary{
 		}
 		return $ans;
 	}
-
 //find food 
 	public static function searchfood($id){
 		$data=DiaryEloquent::where('userID','=',$id)->get();

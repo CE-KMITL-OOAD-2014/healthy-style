@@ -5,7 +5,19 @@
 @section('body')
     
     <!-- Page Content -->
- 
+ <!--<script language="javascript">
+ 	function BMICal()
+ 	{
+		var valueBMI = 0;
+ 		var newheight = 0;
+		
+ 			newheight = (parseInt(eval("document.calBMIform.height.value"))/100 * parseInt(eval("document.calBMIform.height.value"))/100)
+ 			tot = (parseInt(eval("document.calBMIform.weight.value")) / newheight);
+			document.calBMIform.txtSum.value=tot;
+		
+ 	}
+ </script>-->
+
     <div class="container">
 	<div class="row">
 	
@@ -48,7 +60,9 @@
 				
     			<div class="form-actions">
 					<button type="submit" class="btn btn-large btn-primary">คำนวณ</button><br>
-					
+					<br><label for="BMI" class="control-label">    
+                        ค่า BMI :
+                    </label>
                     
     			</div>
 				

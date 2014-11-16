@@ -102,7 +102,57 @@ Route::get('/showdiary','DiaryControllers@getshowdiary');
 Route::get('/changeweight','DiaryControllers@getchangeweight')
 
 
+	//Route::post('prosonal','Usercontrollers@postprosonalfill');
 
+	// Route::get('/search',function(){
+	// 		$data=Search::searchFoodname('หมู');
+	// 		var_dump($data);
+	// });
+
+	// Route::get('/search',function(){
+	// 		$data=Search::searchFoodcal('440');
+	// 		var_dump($data);
+	// });
+
+	// Route::get('/search',function(){
+	// 		$data=Search::searchSportname('ตัดหญ้า');
+	// 		var_dump($data);
+	// });
+
+	// Route::get('/search',function(){
+	// 		$data=Search::searchSportcal('560');
+	// 		var_dump($data);
+	// });
+// Route::get('/',function(){
+// 	return "hello";
+// });
+
+// Route::post('/','CommentController@postComments');
+
+	// $obj=new calculate;
+	// $obj->setname('5555');
+	// return $obj->getname();
+
+	// $obj = new User1;
+	// $obj->setname('fern');
+	// return $obj->getname();
+
+	// $obj=new User1;
+	// $obj->setiduser(2);
+	// $obj->setage(20);
+	// $obj->setweight(65);
+	// $obj->setheight(168);
+	// $obj->setgender(1);
+	// $obj->setgoalweight(60);
+	// $obj->setgoaldate(50);
+	// $obj->newUser1();
+	// var_dump($obj);
+
+	// $obj=User1::getById(1);
+	// var_dump($obj);
+	// $obj->setiduser(1);
+	// $obj->editUser1();
+	//return 'eiei';
 
 
 

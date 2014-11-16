@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'myweb',
 			'username'  => 'root',
-			'password'  => 'Nu182838',
+			'password'  => 'web',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
