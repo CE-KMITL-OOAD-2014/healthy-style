@@ -45,3 +45,6 @@
 			$this->assertEquals($BMR,$Bmrcal);
 		}
 	}
+
+
+?>
